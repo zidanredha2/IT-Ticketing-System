@@ -123,9 +123,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #EMAIL
+DEBUG = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_POST = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'itticketingsystem0.com'
-EMAIL_HOST_PASSWORD = 'Reds@786'
+EMAIL_HOST_USER = 'itticketingsystem0@gmail.com'
+EMAIL_HOST_PASSWORD = 'wmivqlyildpmsxjh'
