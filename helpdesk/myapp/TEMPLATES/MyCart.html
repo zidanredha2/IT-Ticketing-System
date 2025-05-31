@@ -10,12 +10,12 @@
         <div class="card-body">
             <strong>Task ID: </strong>{{cart.id}}<br>
             <strong>Task Title: </strong>{{cart.task.TASK_TITLE}}<br>
-            <strong>Task Created By: </strong>{{cart.task.TASK_CREATED_BY}}<br>
+            <strong>Task Created By: </strong>{{cart.task.TASK_CREATED}}<br>
             <strong>Task Created On: </strong>{{cart.task.TASK_CREATED_ON}}<br>
             <strong>Task Due Date: </strong>{{cart.task.TASK_DUE_DATE}}<br>
             <strong>Task Reward: </strong>{{cart.task.TASK_REWARD}}<br>
             <strong>Task Status: </strong>{{cart.task.TASK_STATUS}}<br>
-            <strong>Task Assigned To: </strong>{{request.user.username}}<br>
+            <strong>Task Assigned To: </strong>{{request.user}}<br>
             <strong>Task Description: </strong>{{cart.task.TASK_DESCRIPTION}}<br>
             <br>
             </div>

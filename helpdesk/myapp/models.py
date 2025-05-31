@@ -13,8 +13,8 @@ class UserProfile(models.Model):
 #TaskDetails Model
 class TaskDetail(models.Model):
     TASK_TITLE = models.CharField(max_length=100)
-    TASK_CREATED_BY = models.CharField(max_length=100, null=True)
-    TASK_CLOSED_BY = models.CharField(max_length=100, null=True)
+    TASK_CREATED =models.ForeignKey(User,  related_name='CREATED_BY', on_delete=models.CASCADE, null=True)
+    TASK_CLOSED = models.ForeignKey(User,  related_name='CLOSED_BY',on_delete=models.CASCADE, null=True)
     TASK_CREATED_ON = models.DateField(auto_now_add=True,null=True)
     TASK_DUE_DATE = models.DateField()
     TASK_REWARD = models.IntegerField()

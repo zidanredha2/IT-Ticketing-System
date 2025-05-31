@@ -9,7 +9,7 @@ admin.site.register(UserProfile, UserProfileAdmin)
 
 #TaskDetails Admin
 class TaskDetailsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'TASK_TITLE', 'TASK_CREATED_BY', 'TASK_CLOSED_BY', 'TASK_CREATED_ON', 'TASK_DUE_DATE', 'TASK_REWARD', 'TASK_CLOSED_ON', 'TASK_DESCRIPTION', 'TASK_HOLDER', 'TASK_STATUS']
+    list_display = ['id', 'TASK_TITLE', 'TASK_CREATED', 'TASK_CLOSED', 'TASK_CREATED_ON', 'TASK_DUE_DATE', 'TASK_REWARD', 'TASK_CLOSED_ON', 'TASK_DESCRIPTION', 'TASK_HOLDER', 'TASK_STATUS']
 admin.site.register(TaskDetail, TaskDetailsAdmin)
 #MyCart Admin
 class MyCartAdmin(admin.ModelAdmin):

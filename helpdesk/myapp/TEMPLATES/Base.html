@@ -39,7 +39,7 @@
         <tr>
           <td>{{taskdata.id}}</td>
           <td>{{taskdata.TASK_TITLE}}</td>
-          <td>{{taskdata.TASK_CREATED_BY}}</td>
+          <td>{{taskdata.TASK_CREATED}}</td>
           <td>{{taskdata.TASK_CREATED_ON}}</td>
           <td>{{taskdata.TASK_DUE_DATE}}</td>
           <td>{{taskdata.TASK_REWARD}}</td>
@@ -51,11 +51,11 @@
       {% elif request.user.is_authenticated %}
       <tbody>
         {% for taskdata in Taskdatas %}
-        {% if taskdata.TASK_CREATED_BY == request.user.username %}
+        {% if taskdata.TASK_CREATED == request.user %}
           <tr>
             <td>{{taskdata.id}}</td>
             <td>{{taskdata.TASK_TITLE}}</td>
-            <td>{{taskdata.TASK_CREATED_BY}}</td>
+            <td>{{taskdata.TASK_CREATED}}</td>
             <td>{{taskdata.TASK_CREATED_ON}}</td>
             <td>{{taskdata.TASK_DUE_DATE}}</td>
             <td>{{taskdata.TASK_REWARD}}</td>

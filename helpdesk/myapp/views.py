@@ -105,7 +105,7 @@ def TaskDetails(request):
             form = TaskDetailForm(request.POST)
             if form.is_valid():
                 Task=form.save(commit=False)
-                Task.TASK_CREATED_BY = request.user
+                Task.TASK_CREATED = request.user
                 Task.save()
                 messages.success(request, 'Task created successfully')
             return redirect('base')
@@ -186,7 +186,7 @@ def CloseTask(request, pk):
     if request.user.is_authenticated:
         Taskdatas= TaskDetail.objects.get(id=pk)
         Taskdatas.TASK_STATUS= 'Closed'
-        Taskdatas.TASK_CLOSED_BY = str(request.user)
+        Taskdatas.TASK_CLOSED = request.user
         Taskdatas.TASK_CLOSED_ON = timezone.now()
         Taskdatas.save()
         mycart = MyCart.objects.filter(task=pk)
@@ -202,7 +202,7 @@ def Reopen_Task(request, pk):
         currentuser = request.user
         taskinfos= TaskDetail.objects.get(id=pk)
         taskinfos.TASK_STATUS = 'Reopened'
-        holder = User.objects.get(username=taskinfos.TASK_CLOSED_BY)
+        holder = User.objects.get(username=taskinfos.TASK_CLOSED)
         taskinfos.save()
         MyCart(user=holder, task=taskinfos).save()
         messages.success(request, 'Task opened successfully')
@@ -215,7 +215,7 @@ def Resolved_Task(request, pk):
     if request.user.is_authenticated:
         taskinfos= TaskDetail.objects.get(id=pk)
         taskinfos.TASK_STATUS = 'Resolved'
-        #holder = User.objects.get(username=taskinfos.TASK_CLOSED_BY)
+        #holder = User.objects.get(username=taskinfos.TASK_CLOSED)
         taskinfos.save()
         messages.success(request, 'Task resolved successfully')
         return redirect('base')
@@ -229,7 +229,7 @@ def AccountDetails(request):
             form = AccountForm(request.POST)
             if form.is_valid():
                 Task=form.save(commit=False)
-                Task.TASK_CREATED_BY = request.user
+                Task.TASK_CREATED = request.user
                 Task.save()
                 messages.success(request, 'Coins added successfully!')
             return redirect('base')
