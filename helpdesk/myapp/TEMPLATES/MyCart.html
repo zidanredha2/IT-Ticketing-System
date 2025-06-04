@@ -1,0 +1,37 @@
+{% extends 'Base.html' %}
+{% block content %}
+<div class="col-4 offset-3">
+    <br>
+    <h1 class="text-center">My Tasks</h1>
+    <hr>
+    {% if Carts %}
+    {% for cart in Carts %}
+    <div class="card text">
+        <div class="card-body">
+            <strong>Task ID: </strong>{{cart.id}}<br>
+            <strong>Task Title: </strong>{{cart.task.TASK_TITLE}}<br>
+            <strong>Task Created By: </strong>{{cart.task.TASK_CREATED}}<br>
+            <strong>Task Created On: </strong>{{cart.task.TASK_CREATED_ON}}<br>
+            <strong>Task Due Date: </strong>{{cart.task.TASK_DUE_DATE}}<br>
+            <strong>Task Reward: </strong>{{cart.task.TASK_REWARD}}<br>
+            <strong>Task Status: </strong>{{cart.task.TASK_STATUS}}<br>
+            <strong>Task Assigned To: </strong>{{request.user}}<br>
+            <strong>Task Description: </strong>{{cart.task.TASK_DESCRIPTION}}<br>
+            <br>
+            </div>
+        <div class="card-footer text-body-secondary">
+            <a href="{% url 'base' %}" class="btn btn-primary">Go back</a>
+            <a href="{% url 'task_close' cart.task.id %}" class="btn btn-warning">Close Task</a>
+            <a href="{% url 'task_remove' cart.task.id %}" class="btn btn-danger">Remove Task</a>
+            </div>
+    </div>
+    <br>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>No tasks assigned to you!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

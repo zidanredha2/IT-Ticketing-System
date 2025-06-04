@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IT Ticketing System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body>
+    {% include "Navbar.html" %}
+    <div class="col-4 offset-3">
+    {% if messages%}
+    <br>
+    {%for message in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    </div>
+    {%block content%}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Task</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Created On</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Reward</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      {% if request.user.is_superuser %}
+      <tbody>
+        {% for taskdata in Taskdatas %}
+        <tr>
+          <td>{{taskdata.id}}</td>
+          <td>{{taskdata.TASK_TITLE}}</td>
+          <td>{{taskdata.TASK_CREATED}}</td>
+          <td>{{taskdata.TASK_CREATED_ON}}</td>
+          <td>{{taskdata.TASK_DUE_DATE}}</td>
+          <td>{{taskdata.TASK_REWARD}}</td>
+          <td>{{taskdata.TASK_STATUS}}</td>
+          <td><a href="{% url 'taskinfo' taskdata.id %}" class="btn btn-success">View</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      {% elif request.user.is_authenticated %}
+      <tbody>
+        {% for taskdata in Taskdatas %}
+        {% if taskdata.TASK_CREATED == request.user %}
+          <tr>
+            <td>{{taskdata.id}}</td>
+            <td>{{taskdata.TASK_TITLE}}</td>
+            <td>{{taskdata.TASK_CREATED}}</td>
+            <td>{{taskdata.TASK_CREATED_ON}}</td>
+            <td>{{taskdata.TASK_DUE_DATE}}</td>
+            <td>{{taskdata.TASK_REWARD}}</td>
+            <td>{{taskdata.TASK_STATUS}}</td>
+            <td><a href="{% url 'taskinfo' taskdata.id %}" class="btn btn-success">View</a></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      {% endif %}
+    </table>
+    {%endblock content%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  </body>
+</html>
