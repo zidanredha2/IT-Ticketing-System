@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.shortcuts import render
+from django.db.models import Q
 from .forms import LoginForm, RegisterForm, UserProfileForm, TaskDetailForm, AccountForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -239,3 +241,4 @@ def AccountDetails(request):
     else:
         messages.success(request, 'Please login to add coins.')
         return redirect('login')
+

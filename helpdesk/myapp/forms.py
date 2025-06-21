@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from .models import UserProfile, TaskDetail, Account
 #LoginForm
 class LoginForm(forms.Form):
@@ -29,13 +29,14 @@ class UserProfileForm(forms.ModelForm):
 #TaskDetail Form
 class TaskDetailForm(forms.ModelForm):
     TASK_TITLE = forms.CharField(label='Task Title', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}))
+    TASK_DEPARTMENT = forms.ModelChoiceField(label='Concerned Department', queryset=Group.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
     TASK_DUE_DATE = forms.DateField(label= 'Task Due Date', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'YYYY-MM-DD'}))
     TASK_REWARD = forms.IntegerField(label= 'Task Reward')
     TASK_DESCRIPTION = forms.CharField(label='Task Description', max_length=300, widget=forms.TextInput(attrs={'class':'form-control'}))
 
     class Meta:
         model= TaskDetail
-        fields = ('TASK_TITLE', 'TASK_DUE_DATE', 'TASK_REWARD', 'TASK_DESCRIPTION',)
+        fields = ('TASK_TITLE','TASK_DEPARTMENT', 'TASK_DUE_DATE', 'TASK_REWARD', 'TASK_DESCRIPTION',)
 # AccountForm
 class AccountForm(forms.ModelForm):
     ACCOUNT_HOLDER = forms.ModelChoiceField(label='Holder', queryset=User.objects.all())

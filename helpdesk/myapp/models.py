@@ -1,8 +1,10 @@
 from django.db import models
 from django.forms import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 # Create your models here.
-
+Group.objects.get_or_create(name='IT')
+Group.objects.get_or_create(name='HR')
+Group.objects.get_or_create(name='Finance')
 #UserProfile model
 class UserProfile(models.Model):
     user  = models.OneToOneField(User, on_delete=models.CASCADE, null= True)
@@ -13,6 +15,7 @@ class UserProfile(models.Model):
 #TaskDetails Model
 class TaskDetail(models.Model):
     TASK_TITLE = models.CharField(max_length=100)
+    TASK_DEPARTMENT = models.ForeignKey(Group, on_delete=models.CASCADE, null=True)
     TASK_CREATED =models.ForeignKey(User,  related_name='CREATED_BY', on_delete=models.CASCADE, null=True)
     TASK_CLOSED = models.ForeignKey(User,  related_name='CLOSED_BY',on_delete=models.CASCADE, null=True)
     TASK_CREATED_ON = models.DateField(auto_now_add=True,null=True)

@@ -27,5 +27,4 @@ urlpatterns = [
     path('resolved_task/<int:pk>', views.Resolved_Task, name='task_resolved'),
     path('account', views.AccountDetails, name='account'),
     path('mycart', views.MyCarts, name='mycart'),
-
 ]
