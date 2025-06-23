@@ -1,12 +1,12 @@
 {%extends 'Base.html' %}
     {%block content%}
     <div class="col-4 offset-3">
-    <h1>Task Assignment</h1>
+    <h1>Raise Ticket</h1>
     <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <br>
-        <button type="submit" class="btn btn-secondary">Assign</button>
+        <button type="submit" class="btn btn-secondary">Raise</button>
     </form>
     </div>
     {%endblock content%}

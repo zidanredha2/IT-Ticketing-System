@@ -29,11 +29,11 @@ class UserProfileForm(forms.ModelForm):
         fields = ( 'Address','City', 'State')
 #TaskDetail Form
 class TaskDetailForm(forms.ModelForm):
-    TASK_TITLE = forms.CharField(label='Task Title', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}))
+    TASK_TITLE = forms.CharField(label='Ticket Title', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}))
     TASK_DEPARTMENT = forms.ModelChoiceField(label='Concerned Department', queryset=Group.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
-    TASK_DUE_DATE = forms.DateField(label= 'Task Due Date', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'YYYY-MM-DD'}))
-    TASK_REWARD = forms.IntegerField(label= 'Task Reward')
-    TASK_DESCRIPTION = forms.CharField(label='Task Description', max_length=300, widget=forms.TextInput(attrs={'class':'form-control'}))
+    TASK_DUE_DATE = forms.DateField(label= 'Ticket Due Date', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'YYYY-MM-DD'}))
+    TASK_REWARD = forms.IntegerField(label= 'Ticket Reward')
+    TASK_DESCRIPTION = forms.CharField(label='Ticket Description', max_length=300, widget=forms.TextInput(attrs={'class':'form-control'}))
 
     class Meta:
         model= TaskDetail
