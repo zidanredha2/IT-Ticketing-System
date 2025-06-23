@@ -155,6 +155,7 @@ def Accept_Task(request, pk):
         currentuser = request.user
         taskinfos= TaskDetail.objects.get(id=pk)
         taskinfos.TASK_STATUS = 'In-process'
+        taskinfos.TASK_HOLDER = str(currentuser)
         taskinfos.save()
         MyCart(user=currentuser, task=taskinfos).save()
         messages.success(request, 'Task accepted successfully')
@@ -174,8 +175,10 @@ def MyCarts(request):
 # Remove Task
 def RemoveTask(request, pk):
     if request.user.is_authenticated:
+        currentuser = request.user
         Taskdatas= TaskDetail.objects.get(id=pk)
         Taskdatas.TASK_STATUS= 'Open'
+        Taskdatas.TASK_HOLDER = None
         Taskdatas.save()
         mycart = MyCart.objects.filter(task=pk)
         mycart.delete()
