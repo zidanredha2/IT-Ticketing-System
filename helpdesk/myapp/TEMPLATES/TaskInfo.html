@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Info</title>
+    <title>Ticket Info</title>
 </head>
 <body>
     {%block content%}
@@ -11,66 +11,66 @@
         <br>
     <div class="card">
         <div class="card-header">
-            <h1>Task Info</h1>
+            <h1>Ticket Info</h1>
         </div>
         <div class="card-body">
             {% if taskinfos.TASK_STATUS == 'Open' %}
-            <strong>Task ID: </strong>{{taskinfos.id}}<br>
-            <strong>Task Title: </strong>{{taskinfos.TASK_TITLE}}<br>
+            <strong>Ticket ID: </strong>{{taskinfos.id}}<br>
+            <strong>Ticket Title: </strong>{{taskinfos.TASK_TITLE}}<br>
             <strong>Concerned Department: </strong>{{taskinfos.TASK_DEPARTMENT}}<br>
-            <strong>Task Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{taskinfos.TASK_STATUS}}<br>
-            <strong>Task Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
+            <strong>Ticket Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{taskinfos.TASK_STATUS}}<br>
+            <strong>Ticket Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
             <br>
             {% elif taskinfos.TASK_STATUS == 'Closed' %}
-            <strong>Task ID: </strong>{{taskinfos.id}}<br>
-            <strong>Task Title: </strong>{{taskinfos.TASK_TITLE}}<br>
+            <strong>Ticket ID: </strong>{{taskinfos.id}}<br>
+            <strong>Ticket Title: </strong>{{taskinfos.TASK_TITLE}}<br>
             <strong>Concerned Department: </strong>{{taskinfos.TASK_DEPARTMENT}}<br>
-            <strong>Task Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{taskinfos.TASK_STATUS}}<br>
-            <strong>Task Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
-            <strong>Task Closed By: </strong>{{taskinfos.TASK_CLOSED}}<br>
-            <strong>Task Closed On: </strong>{{taskinfos.TASK_CLOSED_ON}}<br>
+            <strong>Ticket Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{taskinfos.TASK_STATUS}}<br>
+            <strong>Ticket Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
+            <strong>Ticket Closed By: </strong>{{taskinfos.TASK_CLOSED}}<br>
+            <strong>Ticket Closed On: </strong>{{taskinfos.TASK_CLOSED_ON}}<br>
             <br>
             {% elif taskinfos.TASK_STATUS == 'In-process' %}
-            <strong>Task ID: </strong>{{taskinfos.id}}<br>
-            <strong>Task Title: </strong>{{taskinfos.TASK_TITLE}}<br>
+            <strong>Ticket ID: </strong>{{taskinfos.id}}<br>
+            <strong>Ticket Title: </strong>{{taskinfos.TASK_TITLE}}<br>
             <strong>Concerned Department: </strong>{{taskinfos.TASK_DEPARTMENT}}<br>
-            <strong>Task Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{taskinfos.TASK_STATUS}}<br>
-            <strong>Task Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
-            <strong>Task Holder: </strong>{{taskinfos.TASK_HOLDER}}<br>
+            <strong>Ticket Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{taskinfos.TASK_STATUS}}<br>
+            <strong>Ticket Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
+            <strong>Ticket Holder: </strong>{{taskinfos.TASK_HOLDER}}<br>
             <br>
             {% elif taskinfos.TASK_STATUS == 'Reopened' %}
-            <strong>Task ID: </strong>{{taskinfos.id}}<br>
-            <strong>Task Title: </strong>{{taskinfos.TASK_TITLE}}<br>
+            <strong>Ticket ID: </strong>{{taskinfos.id}}<br>
+            <strong>Ticket Title: </strong>{{taskinfos.TASK_TITLE}}<br>
             <strong>Concerned Department: </strong>{{taskinfos.TASK_DEPARTMENT}}<br>
-            <strong>Task Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{taskinfos.TASK_STATUS}}<br>
-            <strong>Task Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
+            <strong>Ticket Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{taskinfos.TASK_STATUS}}<br>
+            <strong>Ticket Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
             <br>
             {% elif taskinfos.TASK_STATUS == 'Resolved' %}
-            <strong>Task ID: </strong>{{taskinfos.id}}<br>
-            <strong>Task Title: </strong>{{taskinfos.TASK_TITLE}}<br>
+            <strong>Ticket ID: </strong>{{taskinfos.id}}<br>
+            <strong>Ticket Title: </strong>{{taskinfos.TASK_TITLE}}<br>
             <strong>Concerned Department: </strong>{{taskinfos.TASK_DEPARTMENT}}<br>
-            <strong>Task Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{taskinfos.TASK_STATUS}}<br>
-            <strong>Task Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
+            <strong>Ticket Created By: </strong>{{taskinfos.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{taskinfos.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{taskinfos.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{taskinfos.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{taskinfos.TASK_STATUS}}<br>
+            <strong>Ticket Description: </strong>{{taskinfos.TASK_DESCRIPTION}}<br>
             <br>
             {% endif %}
             </div>
