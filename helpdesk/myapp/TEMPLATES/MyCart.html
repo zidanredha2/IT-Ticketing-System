@@ -8,21 +8,22 @@
     {% for cart in Carts %}
     <div class="card text">
         <div class="card-body">
-            <strong>Task ID: </strong>{{cart.id}}<br>
-            <strong>Task Title: </strong>{{cart.task.TASK_TITLE}}<br>
-            <strong>Task Created By: </strong>{{cart.task.TASK_CREATED}}<br>
-            <strong>Task Created On: </strong>{{cart.task.TASK_CREATED_ON}}<br>
-            <strong>Task Due Date: </strong>{{cart.task.TASK_DUE_DATE}}<br>
-            <strong>Task Reward: </strong>{{cart.task.TASK_REWARD}}<br>
-            <strong>Task Status: </strong>{{cart.task.TASK_STATUS}}<br>
-            <strong>Task Assigned To: </strong>{{request.user}}<br>
-            <strong>Task Description: </strong>{{cart.task.TASK_DESCRIPTION}}<br>
+            <strong>Ticket ID: </strong>{{cart.id}}<br>
+            <strong>Ticket Title: </strong>{{cart.task.TASK_TITLE}}<br>
+            <strong>Ticket : </strong>{{cart.task.TASK_DEPARTMENT}}<br>
+            <strong>Ticket Created By: </strong>{{cart.task.TASK_CREATED}}<br>
+            <strong>Ticket Created On: </strong>{{cart.task.TASK_CREATED_ON}}<br>
+            <strong>Ticket Due Date: </strong>{{cart.task.TASK_DUE_DATE}}<br>
+            <strong>Ticket Reward: </strong>{{cart.task.TASK_REWARD}}<br>
+            <strong>Ticket Status: </strong>{{cart.task.TASK_STATUS}}<br>
+            <strong>Ticket Assigned To: </strong>{{request.user}}<br>
+            <strong>Ticket Description: </strong>{{cart.task.TASK_DESCRIPTION}}<br>
             <br>
             </div>
         <div class="card-footer text-body-secondary">
             <a href="{% url 'base' %}" class="btn btn-primary">Go back</a>
-            <a href="{% url 'task_close' cart.task.id %}" class="btn btn-warning">Close Task</a>
-            <a href="{% url 'task_remove' cart.task.id %}" class="btn btn-danger">Remove Task</a>
+            <a href="{% url 'task_close' cart.task.id %}" class="btn btn-warning">Close Ticket</a>
+            <a href="{% url 'task_remove' cart.task.id %}" class="btn btn-danger">Remove Ticket</a>
             </div>
     </div>
     <br>
